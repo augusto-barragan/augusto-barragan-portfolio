@@ -7,7 +7,7 @@ export default function Hero() {
     <header className={styles.hero}>
       <div className={styles.heroPhoto}>
         <img
-          src="https://www.figma.com/api/mcp/asset/d642628e-d76a-4aee-bbbd-e9972ca029ec.png"
+          src="/images/Augusto-photo.jpg"
           alt="Augusto Barragán"
         />
       </div>
