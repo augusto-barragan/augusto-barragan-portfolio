@@ -1,6 +1,6 @@
-export function ArrowRightIcon() {
+export function ArrowRightIcon({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={className}>
       <path d="M5 12h14M13 6l6 6-6 6" />
     </svg>
   );
@@ -42,6 +42,32 @@ export function LinkedInIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor">
       <path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14zM8.34 18v-8.4H5.67V18h2.67zM7 8.42a1.56 1.56 0 100-3.12 1.56 1.56 0 000 3.12zM18.34 18v-4.7c0-2.5-1.34-3.66-3.13-3.66a2.7 2.7 0 00-2.45 1.35h-.04V9.6h-2.56c.03.7 0 8.4 0 8.4h2.56v-4.7c0-.25.02-.5.1-.68a1.5 1.5 0 011.4-1c1 0 1.4.75 1.4 1.86V18h2.72z" />
+    </svg>
+  );
+}
+
+export function BackArrowIcon() {
+  return (
+    <svg viewBox="0 0 9.33333 9.33333" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M4.66667 0.583333L0.583333 4.66667L4.66667 8.75M0.583333 4.66667H8.75"
+        stroke="currentColor"
+        strokeWidth="1.16667"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function CloseIcon() {
+  return (
+    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="40" height="40" fill="var(--primary)" />
+      <path
+        d="M10.4 32L8 29.6L17.6 20L8 10.4L10.4 8L20 17.6L29.6 8L32 10.4L22.4 20L32 29.6L29.6 32L20 22.4L10.4 32Z"
+        fill="var(--dark)"
+      />
     </svg>
   );
 }

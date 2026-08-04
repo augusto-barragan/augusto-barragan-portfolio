@@ -1,4 +1,5 @@
 import { Fragment, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import type { WorkItem as WorkItemType } from '../../data/content';
 import { ArrowRightIcon } from '../icons/Icons';
 import { useParallaxOffset } from '../../hooks/useParallaxOffset';
@@ -18,41 +19,54 @@ export default function WorkItem({ item, index }: { item: WorkItemType; index: n
   const bgOffset = clamp(scrollOffset * BG_PARALLAX_SPEED, BG_MAX_OFFSET);
   const contentOffset = clamp(scrollOffset * CONTENT_PARALLAX_SPEED, CONTENT_MAX_OFFSET);
 
-  return (
-    <div className={styles.workTrack} ref={trackRef}>
-      <a
-        href={item.href}
-        className={styles.workItem}
-        style={{ zIndex: index + 1 }}
-        {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-      >
-        <div className={styles.bgLayer} style={{ transform: `translateY(${bgOffset}px)` }}>
-          <img src={item.bgSrc} alt={item.bgAlt} />
-        </div>
-        <div className={styles.overlay} />
-        <div className={styles.workInner}>
-          <div className={styles.workDesc} style={{ transform: `translateY(${contentOffset}px)` }}>
-            <div className={styles.logoRow}>
-              {item.logos.map((logo, i) => (
-                <Fragment key={logo.src}>
-                  {i > 0 && item.withDivider && <div className={styles.logoDivider} />}
-                  <img
-                    src={logo.src}
-                    alt={logo.alt}
-                    style={{ height: logo.height, width: 'auto', objectFit: logo.objectFit }}
-                  />
-                </Fragment>
-              ))}
-            </div>
-            <div className={styles.viewProject}>
-              <span>
-                View Project
-                <ArrowRightIcon />
-              </span>
-            </div>
+  const content = (
+    <>
+      <div className={styles.bgLayer} style={{ transform: `translateY(${bgOffset}px)` }}>
+        <img src={item.bgSrc} alt={item.bgAlt} />
+      </div>
+      <div className={styles.overlay} />
+      <div className={styles.workInner}>
+        <div className={styles.workDesc} style={{ transform: `translateY(${contentOffset}px)` }}>
+          <div className={styles.logoRow}>
+            {item.logos.map((logo, i) => (
+              <Fragment key={logo.src}>
+                {i > 0 && item.withDivider && <div className={styles.logoDivider} />}
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  style={{ height: logo.height, width: 'auto', objectFit: logo.objectFit }}
+                />
+              </Fragment>
+            ))}
+          </div>
+          <div className={styles.viewProject}>
+            <span>
+              View Project
+              <ArrowRightIcon />
+            </span>
           </div>
         </div>
-      </a>
+      </div>
+    </>
+  );
+
+  return (
+    <div className={styles.workTrack} ref={trackRef}>
+      {isExternal ? (
+        <a
+          href={item.href}
+          className={styles.workItem}
+          style={{ zIndex: index + 1 }}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {content}
+        </a>
+      ) : (
+        <Link to={item.href} className={styles.workItem} style={{ zIndex: index + 1 }}>
+          {content}
+        </Link>
+      )}
     </div>
   );
 }

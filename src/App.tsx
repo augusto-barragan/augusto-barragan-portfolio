@@ -1,21 +1,20 @@
-import About from './components/About/About';
-import Footer from './components/Footer/Footer';
-import Hero from './components/Hero/Hero';
-import Marquee from './components/Marquee/Marquee';
-import Nav from './components/Nav/Nav';
-import ScrollIndicator from './components/ScrollIndicator/ScrollIndicator';
-import Work from './components/Work/Work';
+import { Route, Routes } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
+import Home from './pages/Home';
+import DicksMarriott from './pages/ProjectDetail/DicksMarriott';
+import MyPepsico from './pages/ProjectDetail/MyPepsico';
+import Sportian from './pages/ProjectDetail/Sportian';
 
 export default function App() {
   return (
     <>
-      <Nav />
-      <Hero />
-      <Marquee />
-      <About />
-      <Work />
-      <Footer />
-      <ScrollIndicator />
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/work/dicks-marriott" element={<DicksMarriott />} />
+        <Route path="/work/sportian" element={<Sportian />} />
+        <Route path="/work/mypepsico" element={<MyPepsico />} />
+      </Routes>
     </>
   );
 }

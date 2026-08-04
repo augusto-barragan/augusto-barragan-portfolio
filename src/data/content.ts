@@ -103,7 +103,7 @@ export interface WorkItem {
 
 export const WORK_ITEMS: WorkItem[] = [
   {
-    href: '#',
+    href: '/work/dicks-marriott',
     bgSrc: '/images/marriott-bonvoy-bg.jpg',
     bgAlt: "Dick's Sporting Goods project",
     withDivider: true,
@@ -121,7 +121,7 @@ export const WORK_ITEMS: WorkItem[] = [
     ],
   },
   {
-    href: '#',
+    href: '/work/sportian',
     bgSrc: 'https://www.figma.com/api/mcp/asset/63e3e7f8-38af-4a2d-8b40-7b5e486ee775.png',
     bgAlt: 'Sportian project',
     logos: [
@@ -138,7 +138,7 @@ export const WORK_ITEMS: WorkItem[] = [
     ],
   },
   {
-    href: '#',
+    href: '/work/mypepsico',
     bgSrc: 'https://www.figma.com/api/mcp/asset/65de9abd-f459-486e-a1d2-39d87ffb9f77.png',
     bgAlt: 'PepsiCo project',
     logos: [
@@ -150,4 +150,16 @@ export const WORK_ITEMS: WorkItem[] = [
       },
     ],
   },
+];
+
+export interface ProjectOrderEntry {
+  slug: string;
+  title: string;
+}
+
+/** Order used for the Previous/Next project navigation on each detail page. */
+export const PROJECT_ORDER: ProjectOrderEntry[] = [
+  { slug: 'dicks-marriott', title: "Dick's + Marriott" },
+  { slug: 'sportian', title: 'Sportian' },
+  { slug: 'mypepsico', title: 'MyPepsiCo' },
 ];
