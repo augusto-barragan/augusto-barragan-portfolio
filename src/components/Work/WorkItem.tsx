@@ -4,8 +4,14 @@ import { ArrowRightIcon } from '../icons/Icons';
 import styles from './Work.module.css';
 
 export default function WorkItem({ item }: { item: WorkItemType }) {
+  const isExternal = item.href.startsWith('http');
+
   return (
-    <a href={item.href} className={styles.workItem}>
+    <a
+      href={item.href}
+      className={styles.workItem}
+      {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+    >
       <img className={styles.bg} src={item.bgSrc} alt={item.bgAlt} />
       <div className={styles.workInner}>
         <div className={styles.workDesc}>

@@ -1,4 +1,4 @@
-import { DownloadOutlineIcon, LinkedInIcon, MailIcon, TwitterIcon } from '../icons/Icons';
+import { DownloadOutlineIcon, LinkedInIcon, MailIcon, WhatsAppIcon } from '../icons/Icons';
 import styles from './Footer.module.css';
 
 export default function Footer() {
@@ -11,12 +11,12 @@ export default function Footer() {
             <MailIcon />
             augustobarragan@gmail.com
           </a>
-          <a href="https://www.linkedin.com/in/augustobarrragan">
+          <a href="https://www.linkedin.com/in/augustobarrragan" target="_blank" rel="noopener noreferrer">
             <LinkedInIcon />
             www.linkedin.com/in/augustobarrragan
           </a>
-          <a href="#">
-            <TwitterIcon />
+          <a href="https://wa.me/augustobarragan" target="_blank" rel="noopener noreferrer">
+            <WhatsAppIcon />
             @AugustoBarragan
           </a>
         </div>
