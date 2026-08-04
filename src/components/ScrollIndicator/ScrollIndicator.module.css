@@ -1,0 +1,25 @@
+.scrollIndicator {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 24px;
+  z-index: 40;
+  pointer-events: none;
+  animation: bounce 1.6s infinite;
+}
+
+.scrollIndicator svg {
+  width: 24px;
+  height: 24px;
+  color: var(--primary);
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-8px);
+  }
+}

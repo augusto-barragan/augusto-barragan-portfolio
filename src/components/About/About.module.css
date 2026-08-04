@@ -1,0 +1,244 @@
+.about {
+  background: var(--primary);
+  color: var(--dark);
+  display: flex;
+  gap: 96px;
+  align-items: flex-end;
+  padding: 120px 96px;
+}
+
+.aboutLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  align-items: flex-start;
+}
+
+.aboutHeadingBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.aboutTitle {
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--dark);
+  line-height: 120px;
+  font-size: 80px;
+  margin: 0;
+}
+
+.aboutCopy {
+  font-weight: 500;
+  color: var(--dark);
+  font-size: 20px;
+  line-height: 32.5px;
+  max-width: 727px;
+  margin: 0;
+}
+
+.skillsBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 636px;
+  max-width: 100%;
+}
+
+.skillsLabel {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--dark);
+}
+
+.pillsWrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 10px 0;
+}
+
+.pill {
+  padding: 12px 24px;
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+.pill.filled {
+  background: var(--dark);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.pill.outline {
+  background: var(--primary);
+  border: 2px solid var(--dark);
+  color: var(--dark);
+  font-weight: 500;
+}
+
+.barRow {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  width: 727px;
+  max-width: 100%;
+}
+
+.barTrack {
+  background: var(--primary);
+  border: 0.5px solid var(--dark);
+  height: 12px;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.barFill {
+  background: var(--dark);
+  border: 1px solid var(--dark);
+  height: 12px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  animation: fillBar 1.4s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes fillBar {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 95%;
+  }
+}
+
+.barPercent {
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--dark);
+  white-space: nowrap;
+}
+
+.aboutRight {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex: 1;
+  min-width: 0;
+}
+
+.experienceTitle {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--dark);
+  padding: 10px 0;
+}
+
+.experienceItem {
+  border-bottom: 1px solid var(--dark);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 12px;
+  width: 100%;
+}
+
+.experienceItem.featured {
+  border-bottom-width: 2px;
+  padding-bottom: 24px;
+  cursor: default;
+}
+
+.expTitle p {
+  margin: 0;
+}
+
+.expDate {
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  text-transform: capitalize;
+}
+
+.expRole {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.expRole .light {
+  font-weight: 400;
+}
+
+.expSubtitle {
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  text-transform: capitalize;
+}
+
+.expDetail {
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.experienceItem.featured:hover .expSubtitle {
+  display: none;
+}
+
+.experienceItem.featured:hover .expDetail {
+  display: flex;
+}
+
+.expDescription {
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  text-transform: capitalize;
+  line-height: 16px;
+  margin: 0;
+}
+
+.clients {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.clientPill {
+  background: var(--dark);
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  border-radius: 20px;
+  padding: 2px 12px;
+  white-space: nowrap;
+}
+
+@media (max-width: 1100px) {
+  .about {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 64px 24px;
+    gap: 48px;
+  }
+  .aboutRight {
+    width: 100%;
+  }
+  .skillsBlock,
+  .barRow {
+    width: 100%;
+  }
+  .aboutTitle {
+    font-size: 14vw;
+    line-height: 1.1;
+  }
+}

@@ -1,0 +1,56 @@
+.roleCycler {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.roleLayer {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.roleColor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  mix-blend-mode: screen;
+}
+
+.roleA {
+  color: #00fff9;
+  transform: translate(2px, -2px);
+}
+
+.roleB {
+  color: #ff00c1;
+  transform: translate(-3px, 2px);
+}
+
+.isGlitching .roleColor {
+  opacity: 0.85;
+}
+
+.isGlitching .roleA {
+  transform: translate(6px, -3px) skewX(-6deg);
+}
+
+.isGlitching .roleB {
+  transform: translate(-6px, 3px) skewX(4deg);
+}
+
+.isGlitching .roleBase {
+  animation: roleShake 0.12s steps(1, end) 2;
+}
+
+@keyframes roleShake {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-2px, 1px);
+  }
+  100% {
+    transform: translate(2px, -1px);
+  }
+}

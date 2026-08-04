@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Augusto Barragán — Visual Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #21F1A8;
+    --dark: #171717;
+    --grey: #BABABA;
+    --black: #000000;
+    --white: #FFFFFF;
+  }
+
+  * { box-sizing: border-box; }
+
+  p, h1, h2, h3, h4, h5, h6 { margin: 0; padding: 0; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--dark);
+    color: var(--white);
+    font-family: 'Poppins', 'Arial Black', 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+
+  /* ---------- NAV ---------- */
+  .nav {
+    position: fixed;
+    top: 0; right: 0;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+    padding: 32px;
+  }
+  .nav a {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--white);
+    transition: color .2s ease;
+  }
+  .nav a:hover { color: var(--primary); }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  .hero-photo {
+    width: 336px;
+    flex-shrink: 0;
+    height: 1024px;
+    position: relative;
+  }
+  .hero-photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 24px;
+    position: absolute;
+    left: 50%;
+    top: 141.5px;
+    transform: translateX(calc(-50% + 0.5px));
+  }
+  .subtitle {
+    color: var(--primary);
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .title-line.highlight { position: relative; }
+
+  .title-line.role-line {
+    font-size: clamp(34px, 6.4vw, 92px);
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+  }
+
+
+  .role-cycler {
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+  }
+  .role-layer {
+    margin: 0;
+    white-space: nowrap;
+  }
+  .role-layer.role-color {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    mix-blend-mode: screen;
+  }
+  .role-layer.role-a {
+    color: #00fff9;
+    transform: translate(2px, -2px);
+  }
+  .role-layer.role-b {
+    color: #ff00c1;
+    transform: translate(-3px, 2px);
+  }
+  .role-cycler.is-glitching .role-color {
+    opacity: .85;
+  }
+  .role-cycler.is-glitching .role-a {
+    transform: translate(6px, -3px) skewX(-6deg);
+  }
+  .role-cycler.is-glitching .role-b {
+    transform: translate(-6px, 3px) skewX(4deg);
+  }
+  .role-cycler.is-glitching .role-base {
+    animation: roleShake .12s steps(1, end) 2;
+  }
+  @keyframes roleShake {
+    0%   { transform: translate(0, 0); }
+    50%  { transform: translate(-2px, 1px); }
+    100% { transform: translate(2px, -1px); }
+  }
+
+  .title-line.highlight {
+    position: relative;
+  }
+
+  .glitch {
+    position: relative;
+    display: inline-block;
+    isolation: isolate;
+  }
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    will-change: clip-path, transform;
+  }
+  .glitch::before {
+    color: #00fff9;
+    text-shadow: -2px 0 8px rgba(0, 255, 249, .9), -1px 0 0 rgba(0, 255, 249, .9);
+    mix-blend-mode: screen;
+  }
+  .glitch::after {
+    color: #ff00c1;
+    text-shadow: 2px 0 8px rgba(255, 0, 193, .9), 1px 0 0 rgba(255, 0, 193, .9);
+    mix-blend-mode: screen;
+  }
+
+  .title-line.highlight:hover .glitch::before {
+    animation: glitchBurstCyan 1.4s steps(1, end) infinite;
+  }
+  .title-line.highlight:hover .glitch::after {
+    animation: glitchBurstMagenta 1.9s steps(1, end) infinite;
+    animation-delay: .25s;
+  }
+  .title-line.highlight:hover .glitch {
+    animation: glitchJitter 1.4s steps(1, end) infinite;
+  }
+
+  /* Short calm gaps between multiple bursts per cycle, first burst fires almost immediately */
+  @keyframes glitchBurstCyan {
+    0%   { opacity: 0; clip-path: inset(0 0 100% 0); transform: translate(0, 0) skew(0deg); }
+    4%   { opacity: 1; clip-path: inset(8% 0 74% 0);  transform: translate(-6px, 0) skew(-6deg); }
+    7%   { opacity: 1; clip-path: inset(48% 0 22% 0); transform: translate(5px, 0) skew(0deg); }
+    10%  { opacity: 0; clip-path: inset(0 0 100% 0); }
+    38%  { opacity: 0; clip-path: inset(0 0 100% 0); }
+    42%  { opacity: 1; clip-path: inset(20% 0 60% 0); transform: translate(-4px, 0) skew(4deg); }
+    45%  { opacity: 1; clip-path: inset(65% 0 8% 0);  transform: translate(3px, 0) skew(0deg); }
+    48%  { opacity: 0; clip-path: inset(0 0 100% 0); }
+    72%  { opacity: 0; clip-path: inset(0 0 100% 0); }
+    76%  { opacity: 1; clip-path: inset(30% 0 45% 0); transform: translate(6px, 0) skew(-3deg); }
+    79%  { opacity: 1; clip-path: inset(60% 0 15% 0); transform: translate(-5px, 0) skew(0deg); }
+    82%  { opacity: 0; clip-path: inset(0 0 100% 0); }
+    100% { opacity: 0; clip-path: inset(0 0 100% 0); }
+  }
+  @keyframes glitchBurstMagenta {
+    0%   { opacity: 0; clip-path: inset(0 0 100% 0); transform: translate(0, 0) skew(0deg); }
+    3%   { opacity: 1; clip-path: inset(58% 0 14% 0); transform: translate(6px, 0) skew(5deg); }
+    6%   { opacity: 1; clip-path: inset(30% 0 48% 0); transform: translate(-5px, 0) skew(0deg); }
+    9%   { opacity: 0; clip-path: inset(0 0 100% 0); }
+    30%  { opacity: 0; clip-path: inset(0 0 100% 0); }
+    34%  { opacity: 1; clip-path: inset(10% 0 72% 0); transform: translate(4px, 0) skew(-4deg); }
+    37%  { opacity: 1; clip-path: inset(70% 0 5% 0);  transform: translate(-3px, 0) skew(0deg); }
+    40%  { opacity: 0; clip-path: inset(0 0 100% 0); }
+    64%  { opacity: 0; clip-path: inset(0 0 100% 0); }
+    68%  { opacity: 1; clip-path: inset(42% 0 32% 0); transform: translate(5px, 0) skew(3deg); }
+    71%  { opacity: 1; clip-path: inset(12% 0 68% 0); transform: translate(-4px, 0) skew(0deg); }
+    74%  { opacity: 0; clip-path: inset(0 0 100% 0); }
+    100% { opacity: 0; clip-path: inset(0 0 100% 0); }
+  }
+  /* Tiny base-text jitter synced roughly with the bursts, so the whole word feels struck */
+  @keyframes glitchJitter {
+    0%, 38%, 72%, 100% { transform: translate(0, 0); }
+    4%, 42%, 76% { transform: translate(-1px, 0); }
+    7%, 45%, 79% { transform: translate(1px, 0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .title-line.highlight:hover .glitch::before,
+    .title-line.highlight:hover .glitch::after,
+    .title-line.highlight:hover .glitch {
+      animation: none;
+      opacity: 0;
+      transform: none;
+    }
+  }
+
+  .title-block { display: flex; flex-direction: column; align-items: flex-start; }
+  .title-line {
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 112px;
+    font-size: 112px;
+    letter-spacing: -2.8px;
+    color: var(--white);
+    white-space: nowrap;
+  }
+  .title-line.highlight {
+    background: var(--primary);
+    color: var(--dark);
+    padding: 0 4px;
+  }
+  .title-line .accent { color: var(--primary); }
+
+  .cta { display: flex; gap: 36px; align-items: center; margin-top: 4px; }
+  .btn-outline {
+    border: 2px solid var(--primary);
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 38px;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 14px;
+    transition: background .2s ease, color .2s ease;
+  }
+  .btn-outline:hover { background: var(--primary); color: var(--dark); }
+  .btn-outline svg { width: 18px; height: 18px; }
+
+  .download-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--grey);
+    font-weight: 700;
+    font-size: 14px;
+    transition: color .2s ease;
+  }
+  .download-link:hover { color: var(--primary); }
+  .download-link svg { width: 12px; height: 12px; }
+
+  /* ---------- MARQUEE RIBBON ---------- */
+  .ribbon {
+    background: var(--black);
+    padding: 12px 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 28s linear infinite;
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .marquee-group {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    padding-left: 24px;
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track { animation: none; }
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about {
+    background: var(--primary);
+    color: var(--dark);
+    display: flex;
+    gap: 96px;
+    align-items: flex-end;
+    padding: 120px 96px;
+  }
+  .about-left { display: flex; flex-direction: column; gap: 48px; align-items: flex-start; }
+  .about-heading-block { display: flex; flex-direction: column; gap: 48px; }
+  h2.about-title {
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--dark);
+    line-height: 120px;
+    font-size: 80px;
+    margin: 0;
+  }
+  .about-copy {
+    font-weight: 500;
+    color: var(--dark);
+    font-size: 20px;
+    line-height: 32.5px;
+    max-width: 727px;
+    margin: 0;
+  }
+
+  .skills-block { display: flex; flex-direction: column; gap: 10px; width: 636px; max-width: 100%; }
+  .skills-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--dark);
+  }
+  .pills-wrap { display: flex; flex-wrap: wrap; gap: 16px; padding: 10px 0; }
+  .pill {
+    padding: 12px 24px;
+    font-size: 16px;
+    white-space: nowrap;
+  }
+  .pill.filled { background: var(--dark); color: var(--primary); font-weight: 600; }
+  .pill.outline { background: var(--primary); border: 2px solid var(--dark); color: var(--dark); font-weight: 500; }
+
+  .bar-row { display: flex; gap: 24px; align-items: center; width: 727px; max-width: 100%; }
+  .bar-track {
+    background: var(--primary);
+    border: 0.5px solid var(--dark);
+    height: 12px;
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+  }
+  .bar-fill {
+    background: var(--dark);
+    border: 1px solid var(--dark);
+    height: 12px;
+    position: absolute;
+    top: 0; left: 0;
+    width: 0%;
+    animation: fillBar 1.4s ease-out forwards;
+    animation-delay: .2s;
+  }
+  @keyframes fillBar { from { width: 0%; } to { width: 95%; } }
+  .bar-percent { font-weight: 700; font-size: 20px; color: var(--dark); white-space: nowrap; }
+
+  .about-right { display: flex; flex-direction: column; gap: 24px; flex: 1; min-width: 0; }
+  .experience-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--dark);
+    padding: 10px 0;
+  }
+  .experience-item {
+    border-bottom: 1px solid var(--dark);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-bottom: 12px;
+    width: 100%;
+  }
+  .experience-item.featured {
+    border-bottom-width: 2px;
+    padding-bottom: 24px;
+    cursor: default;
+  }
+  .exp-title p { margin: 0; }
+  .exp-date {
+    font-size: 12px;
+    letter-spacing: 1.2px;
+    text-transform: capitalize;
+  }
+  .exp-role {
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .exp-role .light { font-weight: 400; }
+  .exp-subtitle {
+    font-size: 12px;
+    letter-spacing: 1.2px;
+    text-transform: capitalize;
+  }
+  .exp-detail { display: none; flex-direction: column; gap: 12px; width: 100%; }
+  .experience-item.featured:hover .exp-subtitle { display: none; }
+  .experience-item.featured:hover .exp-detail { display: flex; }
+  .exp-description {
+    font-size: 12px;
+    letter-spacing: 1.2px;
+    text-transform: capitalize;
+    line-height: 16px;
+    margin: 0;
+  }
+  .clients { display: flex; flex-wrap: wrap; gap: 8px; }
+  .client-pill {
+    background: var(--dark);
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    border-radius: 20px;
+    padding: 2px 12px;
+    white-space: nowrap;
+  }
+
+  /* ---------- WORK ---------- */
+  .work-title-wrap { padding: 48px 96px; }
+  h2.work-title {
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--white);
+    line-height: 120px;
+    font-size: 80px;
+    margin: 0;
+  }
+  .work-title .accent { color: var(--primary); }
+
+  .work-item {
+    position: relative;
+    width: 100%;
+    height: 800px;
+    display: block;
+    overflow: hidden;
+  }
+  .work-item img.bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mix-blend-mode: overlay;
+    transition: transform .5s ease;
+  }
+  .work-item:hover img.bg { transform: scale(1.05); }
+  .work-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .work-desc {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 48px;
+  }
+  .logo-row { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; }
+  .logo-row img { height: 75px; width: auto; }
+  .logo-divider { width: 1px; height: 32px; background: rgba(255,255,255,.4); }
+  .view-project {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+  }
+  .view-project span {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .view-project svg { width: 18px; height: 18px; }
+
+  /* ---------- FOOTER ---------- */
+  .footer { display: flex; flex-direction: column; align-items: flex-start; padding: 96px; width: 100%; }
+  .contact-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  h2.contact-title {
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--primary);
+    font-size: 64px;
+    line-height: 96px;
+    margin: 0;
+    padding-top: 12px;
+  }
+  .social { display: flex; flex-direction: column; gap: 16px; align-items: flex-end; }
+  .social a {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--white);
+    text-align: right;
+    transition: color .2s ease;
+  }
+  .social a:hover { color: var(--primary); }
+  .social svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+  .rights {
+    border-top: 1px solid var(--grey);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 33px 0 32px;
+    width: 100%;
+    margin-top: 64px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .rights-text {
+    color: var(--grey);
+    font-size: 12px;
+    letter-spacing: 1.2px;
+    text-transform: capitalize;
+    margin: 0;
+  }
+  .footer-download {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: underline;
+  }
+  .footer-download svg { width: 24px; height: 24px; }
+
+  .created {
+    border-top: 1px solid var(--grey);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-top: 65px;
+    width: 100%;
+  }
+  .created p {
+    color: var(--grey);
+    font-size: 12px;
+    letter-spacing: 1.2px;
+    text-transform: capitalize;
+    text-align: center;
+    margin: 0;
+  }
+  .created strong { font-weight: 700; }
+
+  /* ---------- SCROLL INDICATOR ---------- */
+  .scroll-indicator {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 24px;
+    z-index: 40;
+    pointer-events: none;
+    animation: bounce 1.6s infinite;
+  }
+  .scroll-indicator svg { width: 24px; height: 24px; color: var(--primary); }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-8px); }
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 1100px) {
+    .hero { flex-direction: column; }
+    .hero-photo { width: 100%; height: 420px; order: 2; }
+    .hero-text {
+      position: static;
+      transform: none;
+      order: 1;
+      padding: 64px 24px;
+      width: 100%;
+    }
+    .title-line { font-size: 14vw; line-height: 1.05; white-space: normal; }
+    .about { flex-direction: column; align-items: flex-start; padding: 64px 24px; gap: 48px; }
+    .about-right { width: 100%; }
+    .skills-block, .bar-row { width: 100%; }
+    h2.about-title { font-size: 14vw; line-height: 1.1; }
+    .work-title-wrap { padding: 32px 24px; }
+    h2.work-title { font-size: 12vw; line-height: 1.1; }
+    .work-desc { padding: 0 24px; }
+    .footer { padding: 64px 24px; }
+    h2.contact-title { font-size: 13vw; line-height: 1.1; }
+    .social { align-items: flex-start; }
+    .social a { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="#about">About</a>
+    <a href="#work">Work</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-photo">
+      <img src="https://www.figma.com/api/mcp/asset/d642628e-d76a-4aee-bbbd-e9972ca029ec.png" alt="Augusto Barragán" />
+    </div>
+    <div class="hero-text">
+      <p class="subtitle">AUGUSTO BARRAGAN C.</p>
+      <div class="title-block">
+        <p class="title-line">Hi, I'm</p>
+        <p class="title-line highlight">Augusto,</p>
+        <p class="title-line role-line">
+          <span class="role-cycler" id="roleCycler">
+            <span class="role-layer role-base" id="roleBase">Visual Designer</span>
+            <span class="role-layer role-color role-a" id="roleA" aria-hidden="true">Visual Designer</span>
+            <span class="role-layer role-color role-b" id="roleB" aria-hidden="true">Visual Designer</span>
+          </span>
+        </p>
+        <p class="title-line">based in <span class="accent">bogotá.</span></p>
+      </div>
+      <div class="cta">
+        <a href="#work" class="btn-outline">
+          View Work
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#" class="download-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-8 2h16v2H4v-2z"/></svg>
+          Download CV
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="ribbon">
+    <div class="marquee-track">
+      <div class="marquee-group">
+        <span>Design Systems</span><span>·</span><span>UX</span><span>·</span><span>Figma</span><span>·</span>
+        <span>Animation</span><span>·</span><span>UI</span><span>·</span><span>Adobe Suite</span><span>·</span>
+        <span>WordPress</span><span>·</span><span>Motion</span><span>·</span><span>Accessibility</span><span>·</span>
+        <span>AI</span><span>·</span><span>Interaction Design</span><span>·</span><span>Design Systems</span><span>·</span>
+      </div>
+      <div class="marquee-group" aria-hidden="true">
+        <span>Design Systems</span><span>·</span><span>UX</span><span>·</span><span>Figma</span><span>·</span>
+        <span>Animation</span><span>·</span><span>UI</span><span>·</span><span>Adobe Suite</span><span>·</span>
+        <span>WordPress</span><span>·</span><span>Motion</span><span>·</span><span>Accessibility</span><span>·</span>
+        <span>AI</span><span>·</span><span>Interaction Design</span><span>·</span><span>Design Systems</span><span>·</span>
+      </div>
+    </div>
+  </div>
+
+  <section id="about" class="about">
+    <div class="about-left">
+      <div class="about-heading-block">
+        <h2 class="about-title">About Me</h2>
+        <p class="about-copy">I'm a Senior Visual Designer skilled about creating meaningful digital experiences. Over the past 15+ years, I've worked across UX, UI, and motion design, helping teams build products that are intuitive, scalable and visually compelling.</p>
+      </div>
+
+      <div class="skills-block">
+        <p class="skills-label">Skills &amp; Expertise</p>
+        <div class="pills-wrap">
+          <span class="pill filled">Visual Design</span>
+          <span class="pill outline">Figma</span>
+          <span class="pill outline">Design Systems</span>
+          <span class="pill outline">UI/UX</span>
+          <span class="pill outline">Interaction Design</span>
+          <span class="pill outline">Animation</span>
+          <span class="pill outline">Adobe Suite</span>
+          <span class="pill outline">CMS</span>
+          <span class="pill outline">Motion Graphics</span>
+          <span class="pill outline">Accesibility</span>
+          <span class="pill outline">AI</span>
+        </div>
+      </div>
+
+      <div class="bar-row">
+        <div class="bar-track"><div class="bar-fill"></div></div>
+        <p class="bar-percent">95%</p>
+      </div>
+    </div>
+
+    <div class="about-right">
+      <p class="experience-title">Experience</p>
+
+      <div class="experience-item featured">
+        <div class="exp-title">
+          <p class="exp-date">2017-2026</p>
+          <p class="exp-role">Globant, <span class="light">Bogotá, Colombia</span></p>
+        </div>
+        <p class="exp-subtitle">User Experince Designer - Visual Designer</p>
+        <div class="exp-detail">
+          <p class="exp-description">at Globant, I worked as a Visual Designer and UX Designer, creating user-centered digital experiences for global clients across retail, finance, healthcare, and technology. I collaborated with cross-functional teams to design intuitive interfaces, scalable design systems, and end-to-end product experiences that balanced user needs with business goals.</p>
+          <div class="clients">
+            <span class="client-pill">Dick's</span>
+            <span class="client-pill">PepsiCo</span>
+            <span class="client-pill">Directv</span>
+            <span class="client-pill">Warner Media</span>
+            <span class="client-pill">Sportian</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="experience-item">
+        <div class="exp-title">
+          <p class="exp-date">2013-2017</p>
+          <p class="exp-role">Sancho BBDO, <span class="light">Bogotá, Colombia</span></p>
+        </div>
+        <p class="exp-subtitle">User Experince Designer - Visual Designer - Art Director - Digital Creative</p>
+      </div>
+
+      <div class="experience-item">
+        <div class="exp-title">
+          <p class="exp-date">2013-2013</p>
+          <p class="exp-role">Aida LoweSSP3, <span class="light">Bogotá, Colombia</span></p>
+        </div>
+        <p class="exp-subtitle">Digital Graphic Designer</p>
+      </div>
+
+      <div class="experience-item">
+        <div class="exp-title">
+          <p class="exp-date">2011-2013</p>
+          <p class="exp-role">Plasticolab, <span class="light">Bogotá, Colombia</span></p>
+        </div>
+        <p class="exp-subtitle">Digital Graphic Designer</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="work-title-wrap">
+      <h2 class="work-title">recent <span class="accent">Work</span></h2>
+    </div>
+
+    <a href="#" class="work-item">
+      <img class="bg" src="https://www.figma.com/api/mcp/asset/414dc3cb-92ee-4431-8650-e3d42b38f68c.png" alt="Dick's Sporting Goods project" />
+      <div class="work-inner">
+        <div class="work-desc">
+          <div class="logo-row">
+            <img src="https://www.figma.com/api/mcp/asset/24a62472-dcd9-4981-818c-62250709e49c.svg" alt="Dick's Sporting Goods logo" style="height:75px;" />
+            <div class="logo-divider"></div>
+            <img src="https://www.figma.com/api/mcp/asset/767724f2-3b99-48b2-ac97-564630d3ac4f.svg" alt="Marriott Bonvoy logo" style="height:52px;" />
+          </div>
+          <div class="view-project">
+            <span>View Project
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <a href="#" class="work-item">
+      <img class="bg" src="https://www.figma.com/api/mcp/asset/63e3e7f8-38af-4a2d-8b40-7b5e486ee775.png" alt="Sportian project" />
+      <div class="work-inner">
+        <div class="work-desc">
+          <div class="logo-row">
+            <img src="https://www.figma.com/api/mcp/asset/cf51b71c-4f6f-4606-bd83-5aef125e5ba0.svg" alt="" style="height:82px;" />
+            <img src="https://www.figma.com/api/mcp/asset/df7aa244-322c-4d54-aa75-9799e911cd3b.svg" alt="Sportian logo" style="height:82px;" />
+          </div>
+          <div class="view-project">
+            <span>View Project
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <a href="#" class="work-item">
+      <img class="bg" src="https://www.figma.com/api/mcp/asset/65de9abd-f459-486e-a1d2-39d87ffb9f77.png" alt="PepsiCo project" />
+      <div class="work-inner">
+        <div class="work-desc">
+          <div class="logo-row">
+            <img src="https://www.figma.com/api/mcp/asset/88c53d0f-6398-4769-989b-9a2376f9cfb6.png" alt="my PepsiCo logo" style="height:42px; object-fit:contain;" />
+          </div>
+          <div class="view-project">
+            <span>View Project
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </a>
+  </section>
+
+  <footer id="contact" class="footer">
+    <div class="contact-row">
+      <h2 class="contact-title">Contact</h2>
+      <div class="social">
+        <a href="mailto:augustobarragan@gmail.com">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          augustobarragan@gmail.com
+        </a>
+        <a href="https://www.linkedin.com/in/augustobarrragan">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14zM8.34 18v-8.4H5.67V18h2.67zM7 8.42a1.56 1.56 0 100-3.12 1.56 1.56 0 000 3.12zM18.34 18v-4.7c0-2.5-1.34-3.66-3.13-3.66a2.7 2.7 0 00-2.45 1.35h-.04V9.6h-2.56c.03.7 0 8.4 0 8.4h2.56v-4.7c0-.25.02-.5.1-.68a1.5 1.5 0 011.4-1c1 0 1.4.75 1.4 1.86V18h2.72z"/></svg>
+          www.linkedin.com/in/augustobarrragan
+        </a>
+        <a href="#">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 5.9c-.77.35-1.6.58-2.46.68a4.3 4.3 0 001.88-2.37 8.6 8.6 0 01-2.72 1.04A4.28 4.28 0 0016 4a4.28 4.28 0 00-4.28 4.28c0 .34.04.66.11.98A12.14 12.14 0 013 5.15a4.28 4.28 0 001.32 5.71 4.24 4.24 0 01-1.94-.54v.05a4.28 4.28 0 003.43 4.2 4.3 4.3 0 01-1.93.07 4.28 4.28 0 004 2.97A8.58 8.58 0 012 19.54 12.1 12.1 0 008.29 21c7.55 0 11.68-6.26 11.68-11.68l-.01-.53A8.3 8.3 0 0022 5.9z"/></svg>
+          @AugustoBarragan
+        </a>
+      </div>
+    </div>
+
+    <div class="rights">
+      <p class="rights-text">© 2026 Augusto barragan. All rights reserved</p>
+      <a href="#" class="footer-download">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-8 2h16v2H4v-2z"/></svg>
+        Download CV
+      </a>
+    </div>
+
+    <div class="created">
+      <p>Designed in figma <strong>·</strong> Coded in claude</p>
+    </div>
+  </footer>
+
+  <div class="scroll-indicator">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+  </div>
+
+  <script>
+    (function () {
+      var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      var roles = ['Visual Designer', 'Motion Designer', 'UX Designer'];
+      var scrambleChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ#%&$@!*/\\<>01';
+
+      var wrap = document.getElementById('roleCycler');
+      var layers = [
+        document.getElementById('roleBase'),
+        document.getElementById('roleA'),
+        document.getElementById('roleB')
+      ];
+
+      if (!wrap || reduceMotion) return;
+
+      var current = 0;
+
+      function setText(txt) {
+        layers.forEach(function (el) { el.textContent = txt; });
+      }
+
+      function randInt(n) {
+        return Math.floor(Math.random() * n);
+      }
+
+      // Scrambles a handful of characters for a few frames, then settles on the target text.
+      function scrambleTo(target, onDone) {
+        var from = layers[0].textContent;
+        var frame = 0;
+        var totalFrames = 5 + randInt(4);
+
+        var interval = setInterval(function () {
+          var base = frame < totalFrames - 1 ? from : target;
+          var chars = base.split('');
+          var hits = 3 + randInt(4);
+
+          for (var i = 0; i < hits; i++) {
+            var idx = randInt(chars.length);
+            if (chars[idx] === ' ') continue;
+            chars[idx] = scrambleChars[randInt(scrambleChars.length)];
+          }
+
+          setText(chars.join(''));
+          wrap.classList.add('is-glitching');
+
+          frame++;
+          if (frame >= totalFrames) {
+            clearInterval(interval);
+            setText(target);
+            setTimeout(function () { wrap.classList.remove('is-glitching'); }, 90);
+            if (onDone) onDone();
+          }
+        }, 55);
+      }
+
+      function cycle() {
+        current = (current + 1) % roles.length;
+        scrambleTo(roles[current], function () {
+          setTimeout(cycle, 2600);
+        });
+      }
+
+      setText(roles[current]);
+      setTimeout(cycle, 2600);
+    })();
+  </script>
+
+</body>
+</html>

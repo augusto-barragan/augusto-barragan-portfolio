@@ -1,0 +1,142 @@
+export const ROLES = ['Visual Designer', 'Motion Designer', 'UX Designer'];
+
+export const MARQUEE_ITEMS = [
+  'Design Systems',
+  'UX',
+  'Figma',
+  'Animation',
+  'UI',
+  'Adobe Suite',
+  'WordPress',
+  'Motion',
+  'Accessibility',
+  'AI',
+  'Interaction Design',
+];
+
+export interface Skill {
+  label: string;
+  filled?: boolean;
+}
+
+export const SKILLS: Skill[] = [
+  { label: 'Visual Design', filled: true },
+  { label: 'Figma' },
+  { label: 'Design Systems' },
+  { label: 'UI/UX' },
+  { label: 'Interaction Design' },
+  { label: 'Animation' },
+  { label: 'Adobe Suite' },
+  { label: 'CMS' },
+  { label: 'Motion Graphics' },
+  { label: 'Accesibility' },
+  { label: 'AI' },
+  { label: 'Claude' },
+];
+
+export interface ExperienceItem {
+  date: string;
+  company: string;
+  location: string;
+  subtitle: string;
+  featured?: boolean;
+  description?: string;
+  clients?: string[];
+}
+
+export const EXPERIENCE: ExperienceItem[] = [
+  {
+    date: '2017-2026',
+    company: 'Globant',
+    location: 'Bogotá, Colombia',
+    subtitle: 'User Experince Designer - Visual Designer',
+    featured: true,
+    description:
+      "at Globant, I worked as a Visual Designer and UX Designer, creating user-centered digital experiences for global clients across retail, finance, healthcare, and technology. I collaborated with cross-functional teams to design intuitive interfaces, scalable design systems, and end-to-end product experiences that balanced user needs with business goals.",
+    clients: ["Dick's", 'PepsiCo', 'Directv', 'Warner Media', 'Sportian'],
+  },
+  {
+    date: '2013-2017',
+    company: 'Sancho BBDO',
+    location: 'Bogotá, Colombia',
+    subtitle: 'User Experince Designer - Visual Designer - Art Director - Digital Creative',
+  },
+  {
+    date: '2013-2013',
+    company: 'Aida LoweSSP3',
+    location: 'Bogotá, Colombia',
+    subtitle: 'Digital Graphic Designer',
+  },
+  {
+    date: '2011-2013',
+    company: 'Plasticolab',
+    location: 'Bogotá, Colombia',
+    subtitle: 'Digital Graphic Designer',
+  },
+];
+
+export interface WorkLogo {
+  src: string;
+  alt: string;
+  height: number;
+  objectFit?: 'contain';
+}
+
+export interface WorkItem {
+  href: string;
+  bgSrc: string;
+  bgAlt: string;
+  logos: WorkLogo[];
+  withDivider?: boolean;
+}
+
+export const WORK_ITEMS: WorkItem[] = [
+  {
+    href: '#',
+    bgSrc: '/images/marriott-bonvoy-bg.jpg',
+    bgAlt: "Dick's Sporting Goods project",
+    withDivider: true,
+    logos: [
+      {
+        src: 'https://www.figma.com/api/mcp/asset/24a62472-dcd9-4981-818c-62250709e49c.svg',
+        alt: "Dick's Sporting Goods logo",
+        height: 75,
+      },
+      {
+        src: 'https://www.figma.com/api/mcp/asset/767724f2-3b99-48b2-ac97-564630d3ac4f.svg',
+        alt: 'Marriott Bonvoy logo',
+        height: 52,
+      },
+    ],
+  },
+  {
+    href: '#',
+    bgSrc: 'https://www.figma.com/api/mcp/asset/63e3e7f8-38af-4a2d-8b40-7b5e486ee775.png',
+    bgAlt: 'Sportian project',
+    logos: [
+      {
+        src: 'https://www.figma.com/api/mcp/asset/cf51b71c-4f6f-4606-bd83-5aef125e5ba0.svg',
+        alt: '',
+        height: 82,
+      },
+      {
+        src: 'https://www.figma.com/api/mcp/asset/df7aa244-322c-4d54-aa75-9799e911cd3b.svg',
+        alt: 'Sportian logo',
+        height: 82,
+      },
+    ],
+  },
+  {
+    href: '#',
+    bgSrc: 'https://www.figma.com/api/mcp/asset/65de9abd-f459-486e-a1d2-39d87ffb9f77.png',
+    bgAlt: 'PepsiCo project',
+    logos: [
+      {
+        src: 'https://www.figma.com/api/mcp/asset/88c53d0f-6398-4769-989b-9a2376f9cfb6.png',
+        alt: 'my PepsiCo logo',
+        height: 42,
+        objectFit: 'contain',
+      },
+    ],
+  },
+];
