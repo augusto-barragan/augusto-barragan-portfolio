@@ -3,7 +3,7 @@
   color: var(--dark);
   display: flex;
   gap: 96px;
-  align-items: flex-end;
+  align-items: flex-start;
   padding: 120px 96px;
 }
 
@@ -150,10 +150,14 @@
   gap: 12px;
   padding-bottom: 12px;
   width: 100%;
+  transition: border-bottom-width 0.25s ease;
+}
+
+.experienceItem:hover {
+  border-bottom-width: 2px;
 }
 
 .experienceItem.featured {
-  border-bottom-width: 2px;
   padding-bottom: 24px;
   cursor: default;
 }
@@ -181,21 +185,31 @@
   font-size: 12px;
   letter-spacing: 1.2px;
   text-transform: capitalize;
+  opacity: 1;
+  max-height: 20px;
+  overflow: hidden;
+  transition: opacity 0.25s ease, max-height 0.3s ease;
 }
 
 .expDetail {
-  display: none;
+  display: flex;
   flex-direction: column;
   gap: 12px;
   width: 100%;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.35s ease 0.05s, max-height 0.35s ease;
 }
 
-.experienceItem.featured:hover .expSubtitle {
-  display: none;
+.experienceItem:hover .expSubtitle {
+  opacity: 0;
+  max-height: 0;
 }
 
-.experienceItem.featured:hover .expDetail {
-  display: flex;
+.experienceItem:hover .expDetail {
+  opacity: 1;
+  max-height: 240px;
 }
 
 .expDescription {

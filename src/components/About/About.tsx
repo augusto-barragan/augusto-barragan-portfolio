@@ -58,7 +58,7 @@ export default function About() {
               </p>
             </div>
             <p className={styles.expSubtitle}>{item.subtitle}</p>
-            {item.featured && (
+            {item.description && (
               <div className={styles.expDetail}>
                 <p className={styles.expDescription}>{item.description}</p>
                 <div className={styles.clients}>

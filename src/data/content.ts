@@ -62,18 +62,27 @@ export const EXPERIENCE: ExperienceItem[] = [
     company: 'Sancho BBDO',
     location: 'Bogotá, Colombia',
     subtitle: 'User Experince Designer - Visual Designer - Art Director - Digital Creative',
+    description:
+      "at Globant, I worked as a Visual Designer and UX Designer, creating user-centered digital experiences for global clients across retail, finance, healthcare, and technology. I collaborated with cross-functional teams to design intuitive interfaces, scalable design systems, and end-to-end product experiences that balanced user needs with business goals.",
+    clients: ["Dick's", 'PepsiCo', 'Directv', 'Warner Media', 'Sportian'],
   },
   {
     date: '2013-2013',
     company: 'Aida LoweSSP3',
     location: 'Bogotá, Colombia',
     subtitle: 'Digital Graphic Designer',
+    description:
+      "at Globant, I worked as a Visual Designer and UX Designer, creating user-centered digital experiences for global clients across retail, finance, healthcare, and technology. I collaborated with cross-functional teams to design intuitive interfaces, scalable design systems, and end-to-end product experiences that balanced user needs with business goals.",
+    clients: ["Dick's", 'PepsiCo', 'Directv', 'Warner Media', 'Sportian'],
   },
   {
     date: '2011-2013',
     company: 'Plasticolab',
     location: 'Bogotá, Colombia',
     subtitle: 'Digital Graphic Designer',
+    description:
+      "at Globant, I worked as a Visual Designer and UX Designer, creating user-centered digital experiences for global clients across retail, finance, healthcare, and technology. I collaborated with cross-functional teams to design intuitive interfaces, scalable design systems, and end-to-end product experiences that balanced user needs with business goals.",
+    clients: ["Dick's", 'PepsiCo', 'Directv', 'Warner Media', 'Sportian'],
   },
 ];
 
