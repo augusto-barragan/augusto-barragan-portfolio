@@ -29,6 +29,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  overflow-x: clip;
   background: var(--dark);
   color: var(--white);
   font-family: 'Poppins', 'Arial Black', 'Helvetica Neue', Arial, sans-serif;
@@ -49,8 +50,4 @@ a {
 img {
   display: block;
   max-width: 100%;
-}
-
-#root {
-  overflow-x: hidden;
 }

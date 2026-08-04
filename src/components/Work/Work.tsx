@@ -11,8 +11,8 @@ export default function Work() {
         </h2>
       </div>
 
-      {WORK_ITEMS.map((item) => (
-        <WorkItem key={item.bgSrc} item={item} />
+      {WORK_ITEMS.map((item, index) => (
+        <WorkItem key={item.bgSrc} item={item} index={index} />
       ))}
     </section>
   );
