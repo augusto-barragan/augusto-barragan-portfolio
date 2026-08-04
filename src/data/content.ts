@@ -16,22 +16,24 @@ export const MARQUEE_ITEMS = [
 
 export interface Skill {
   label: string;
+  /** Competency shown on the About bar when this skill is hovered, 0-100. */
+  level: number;
   filled?: boolean;
 }
 
 export const SKILLS: Skill[] = [
-  { label: 'Visual Design', filled: true },
-  { label: 'Figma' },
-  { label: 'Design Systems' },
-  { label: 'UI/UX' },
-  { label: 'Interaction Design' },
-  { label: 'Animation' },
-  { label: 'Adobe Suite' },
-  { label: 'CMS' },
-  { label: 'Motion Graphics' },
-  { label: 'Accesibility' },
-  { label: 'AI' },
-  { label: 'Claude' },
+  { label: 'Visual Design', level: 95, filled: false },
+  { label: 'Figma', level: 95 },
+  { label: 'Design Systems', level: 90 },
+  { label: 'UI/UX', level: 90 },
+  { label: 'Interaction Design', level: 85 },
+  { label: 'Animation', level: 80 },
+  { label: 'Adobe Suite', level: 90 },
+  { label: 'CMS', level: 70 },
+  { label: 'Motion Graphics', level: 75 },
+  { label: 'Accesibility', level: 80 },
+  { label: 'AI', level: 75 },
+  { label: 'Claude', level: 85 },
 ];
 
 export interface ExperienceItem {

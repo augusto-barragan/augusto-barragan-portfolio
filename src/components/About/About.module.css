@@ -65,6 +65,8 @@
   padding: 12px 24px;
   font-size: 16px;
   white-space: nowrap;
+  cursor: pointer;
+  transition: transform 0.15s ease;
 }
 
 .pill.filled {
@@ -78,6 +80,13 @@
   border: 2px solid var(--dark);
   color: var(--dark);
   font-weight: 500;
+}
+
+.pill:hover {
+  transform: translateY(-2px);
+  background: var(--dark);
+  color: var(--primary);
+  border-color: var(--dark);
 }
 
 .barRow {
@@ -105,17 +114,7 @@
   top: 0;
   left: 0;
   width: 0%;
-  animation: fillBar 1.4s ease-out forwards;
-  animation-delay: 0.2s;
-}
-
-@keyframes fillBar {
-  from {
-    width: 0%;
-  }
-  to {
-    width: 95%;
-  }
+  transition: width 0.3s ease;
 }
 
 .barPercent {
@@ -123,6 +122,8 @@
   font-size: 20px;
   color: var(--dark);
   white-space: nowrap;
+  width: 48px;
+  text-align: right;
 }
 
 .aboutRight {

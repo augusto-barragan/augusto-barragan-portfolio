@@ -1,7 +1,12 @@
-import { EXPERIENCE, SKILLS } from '../../data/content';
+import { useState } from 'react';
+import { EXPERIENCE, SKILLS, type Skill } from '../../data/content';
 import styles from './About.module.css';
 
+const DEFAULT_SKILL: Skill = SKILLS.find((skill) => skill.filled) ?? SKILLS[0];
+
 export default function About() {
+  const [activeSkill, setActiveSkill] = useState(DEFAULT_SKILL);
+
   return (
     <section id="about" className={styles.about}>
       <div className={styles.aboutLeft}>
@@ -21,6 +26,8 @@ export default function About() {
               <span
                 key={skill.label}
                 className={`${styles.pill} ${skill.filled ? styles.filled : styles.outline}`}
+                onMouseEnter={() => setActiveSkill(skill)}
+                onMouseLeave={() => setActiveSkill(DEFAULT_SKILL)}
               >
                 {skill.label}
               </span>
@@ -30,9 +37,9 @@ export default function About() {
 
         <div className={styles.barRow}>
           <div className={styles.barTrack}>
-            <div className={styles.barFill} />
+            <div className={styles.barFill} style={{ width: `${activeSkill.level}%` }} />
           </div>
-          <p className={styles.barPercent}>95%</p>
+          <p className={styles.barPercent}>{activeSkill.level}%</p>
         </div>
       </div>
 
