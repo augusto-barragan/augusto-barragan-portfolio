@@ -55,12 +55,6 @@
   white-space: nowrap;
 }
 
-.titleLine.roleLine {
-  font-size: clamp(34px, 6.4vw, 92px);
-  line-height: 1.05;
-  letter-spacing: -1.5px;
-}
-
 .titleLine.highlight {
   position: relative;
   background: var(--primary);
@@ -117,8 +111,8 @@
 }
 
 .downloadLink svg {
-  width: 12px;
-  height: 12px;
+  width: 18px;
+  height: 18px;
 }
 
 @media (max-width: 1100px) {

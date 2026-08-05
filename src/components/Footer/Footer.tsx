@@ -1,4 +1,4 @@
-import { DownloadOutlineIcon, LinkedInIcon, MailIcon, WhatsAppIcon } from '../icons/Icons';
+import { DownloadIcon, LinkedInIcon, MailIcon, WhatsAppIcon } from '../icons/Icons';
 import styles from './Footer.module.css';
 
 export default function Footer() {
@@ -25,7 +25,7 @@ export default function Footer() {
       <div className={styles.rights}>
         <p className={styles.rightsText}>© 2026 Augusto barragan. All rights reserved</p>
         <a href="#" className={styles.footerDownload}>
-          <DownloadOutlineIcon />
+          <DownloadIcon />
           Download CV
         </a>
       </div>
