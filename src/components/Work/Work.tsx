@@ -12,7 +12,7 @@ export default function Work() {
       </div>
 
       {WORK_ITEMS.map((item, index) => (
-        <WorkItem key={item.bgSrc} item={item} index={index} />
+        <WorkItem key={item.bgAlt} item={item} index={index} />
       ))}
     </section>
   );

@@ -99,53 +99,92 @@ export interface WorkItem {
   bgAlt: string;
   logos: WorkLogo[];
   withDivider?: boolean;
+  /** Renders a "Coming Soon" tag instead of "View Project" and disables the link. */
+  comingSoon?: boolean;
+  /** Client name shown as text when there's no logo asset yet (coming-soon items). */
+  label?: string;
 }
 
 export const WORK_ITEMS: WorkItem[] = [
   {
     href: '/work/dicks-marriott',
-    bgSrc: '/images/marriott-bonvoy-bg.jpg',
+    bgSrc: '/images/backgrounds/marriott-bonvoy-bg.jpg',
     bgAlt: "Dick's Sporting Goods project",
     withDivider: true,
     logos: [
       {
-        src: 'https://www.figma.com/api/mcp/asset/24a62472-dcd9-4981-818c-62250709e49c.svg',
+        src: '/images/logos/dicks-marriott-logo.svg',
         alt: "Dick's Sporting Goods logo",
         height: 75,
-      },
-      {
-        src: 'https://www.figma.com/api/mcp/asset/767724f2-3b99-48b2-ac97-564630d3ac4f.svg',
-        alt: 'Marriott Bonvoy logo',
-        height: 52,
       },
     ],
   },
   {
     href: '/work/sportian',
-    bgSrc: 'https://www.figma.com/api/mcp/asset/63e3e7f8-38af-4a2d-8b40-7b5e486ee775.png',
+    bgSrc: '/images/backgrounds/sportian-bg.jpg',
     bgAlt: 'Sportian project',
     logos: [
       {
-        src: 'https://www.figma.com/api/mcp/asset/cf51b71c-4f6f-4606-bd83-5aef125e5ba0.svg',
+        src: '/images/logos/sportian-logo.svg',
         alt: '',
-        height: 82,
-      },
-      {
-        src: 'https://www.figma.com/api/mcp/asset/df7aa244-322c-4d54-aa75-9799e911cd3b.svg',
-        alt: 'Sportian logo',
-        height: 82,
+        height: 70,
       },
     ],
   },
   {
     href: '/work/mypepsico',
-    bgSrc: 'https://www.figma.com/api/mcp/asset/65de9abd-f459-486e-a1d2-39d87ffb9f77.png',
+    bgSrc: '/images/backgrounds/mypepsico-bg.jpg',
     bgAlt: 'PepsiCo project',
     logos: [
       {
-        src: 'https://www.figma.com/api/mcp/asset/88c53d0f-6398-4769-989b-9a2376f9cfb6.png',
+        src: '/images/logos/mypepsico-logo.png',
         alt: 'my PepsiCo logo',
         height: 42,
+        objectFit: 'contain',
+      },
+    ],
+  },
+  {
+    href: '',
+    bgSrc: '',
+    bgAlt: 'DirectvGo project — coming soon',
+    comingSoon: true,
+    label: 'DirectvGo',
+    logos: [
+      {
+        src: '/images/logos/directv-go-logo.svg',
+        alt: 'directv go logo',
+        height: 42,
+        objectFit: 'contain',
+      },
+    ],
+  },
+  {
+    href: '',
+    bgSrc: '',
+    bgAlt: 'Warner Media project — coming soon',
+    comingSoon: true,
+    label: 'Warner Media',
+    logos: [
+      {
+        src: '/images/logos/warnermedia-logo.png',
+        alt: 'warner media logo',
+        height: 42,
+        objectFit: 'contain',
+      },
+    ],
+  },
+  {
+    href: '',
+    bgSrc: '',
+    bgAlt: 'Sancho BBDO project — coming soon',
+    comingSoon: true,
+    label: 'Sancho BBDO',
+    logos: [
+      {
+        src: '/images/logos/sanchobbdo-logo.svg',
+        alt: 'sancho bbdo logo',
+        height: 62,
         objectFit: 'contain',
       },
     ],

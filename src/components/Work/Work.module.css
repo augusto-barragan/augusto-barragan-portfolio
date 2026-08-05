@@ -45,6 +45,41 @@
   transform: scale(1.08);
 }
 
+.placeholderBg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(33, 241, 168, 0.08), transparent 60%), var(--dark);
+}
+
+.comingSoonLabel {
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--white);
+  font-size: clamp(32px, 5vw, 64px);
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin: 0;
+}
+
+.comingSoonTag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--grey);
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+.comingSoonTag::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
 .overlay {
   position: absolute;
   inset: 0;
