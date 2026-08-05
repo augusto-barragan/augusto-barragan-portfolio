@@ -51,16 +51,6 @@
   background: radial-gradient(circle at 30% 30%, rgba(33, 241, 168, 0.08), transparent 60%), var(--dark);
 }
 
-.comingSoonLabel {
-  font-weight: 900;
-  text-transform: uppercase;
-  color: var(--white);
-  font-size: clamp(32px, 5vw, 64px);
-  line-height: 1.1;
-  letter-spacing: -1px;
-  margin: 0;
-}
-
 .comingSoonTag {
   display: flex;
   align-items: center;

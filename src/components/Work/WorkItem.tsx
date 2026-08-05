@@ -21,30 +21,28 @@ export default function WorkItem({ item, index }: { item: WorkItemType; index: n
 
   const content = (
     <>
-      {item.comingSoon ? (
-        <div className={styles.placeholderBg} />
-      ) : (
+      {item.bgSrc ? (
         <div className={styles.bgLayer} style={{ transform: `translateY(${bgOffset}px)` }}>
           <img src={item.bgSrc} alt={item.bgAlt} />
         </div>
+      ) : (
+        <div className={styles.placeholderBg} />
       )}
       <div className={styles.overlay} />
       <div className={styles.workInner}>
         <div className={styles.workDesc} style={{ transform: `translateY(${contentOffset}px)` }}>
-          
-            <div className={styles.logoRow}>
-              {item.logos.map((logo, i) => (
-                <Fragment key={logo.src}>
-                  {i > 0 && item.withDivider && <div className={styles.logoDivider} />}
-                  <img
-                    src={logo.src}
-                    alt={logo.alt}
-                    style={{ height: logo.height, width: 'auto', objectFit: logo.objectFit }}
-                  />
-                </Fragment>
-              ))}
-            </div>
-          
+          <div className={styles.logoRow}>
+            {item.logos.map((logo, i) => (
+              <Fragment key={logo.src}>
+                {i > 0 && item.withDivider && <div className={styles.logoDivider} />}
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  style={{ height: logo.height, width: 'auto', objectFit: logo.objectFit }}
+                />
+              </Fragment>
+            ))}
+          </div>
           <div className={styles.viewProject}>
             {item.comingSoon ? (
               <span className={styles.comingSoonTag}>Coming Soon</span>

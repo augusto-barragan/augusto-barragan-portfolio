@@ -104,8 +104,6 @@ export interface WorkItem {
   withDivider?: boolean;
   /** Renders a "Coming Soon" tag instead of "View Project" and disables the link. */
   comingSoon?: boolean;
-  /** Client name shown as text when there's no logo asset yet (coming-soon items). */
-  label?: string;
 }
 
 export const WORK_ITEMS: WorkItem[] = [
@@ -152,7 +150,6 @@ export const WORK_ITEMS: WorkItem[] = [
     bgSrc: '/images/backgrounds/directv-bg.jpg',
     bgAlt: 'DirectvGo project — coming soon',
     comingSoon: true,
-    label: 'DirectvGo',
     logos: [
       {
         src: '/images/logos/directv-go-logo.svg',
@@ -164,10 +161,9 @@ export const WORK_ITEMS: WorkItem[] = [
   },
   {
     href: '',
-    bgSrc: '',
+    bgSrc: '/images/backgrounds/warnermedia-bg.jpg',
     bgAlt: 'Warner Media project — coming soon',
     comingSoon: true,
-    label: 'Warner Media',
     logos: [
       {
         src: '/images/logos/warnermedia-logo.png',
@@ -179,10 +175,9 @@ export const WORK_ITEMS: WorkItem[] = [
   },
   {
     href: '',
-    bgSrc: '',
+    bgSrc: '/images/backgrounds/sancho-bg.jpg',
     bgAlt: 'Sancho BBDO project — coming soon',
     comingSoon: true,
-    label: 'Sancho BBDO',
     logos: [
       {
         src: '/images/logos/sanchobbdo-logo.svg',
