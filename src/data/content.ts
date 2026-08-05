@@ -5,13 +5,15 @@ export const MARQUEE_ITEMS = [
   'UX',
   'Figma',
   'Animation',
+  'Adobe After Effects',
   'UI',
-  'Adobe Suite',
+  'Adobe Photoshop',
   'WordPress',
   'Motion',
   'Accessibility',
   'AI',
   'Interaction Design',
+  'Adobe Illustrator',
 ];
 
 export interface Skill {
@@ -22,18 +24,19 @@ export interface Skill {
 }
 
 export const SKILLS: Skill[] = [
-  { label: 'Visual Design', level: 95, filled: false },
-  { label: 'Figma', level: 95 },
-  { label: 'Design Systems', level: 90 },
-  { label: 'UI/UX', level: 90 },
+  { label: 'Visual Design', level: 94, filled: false },
+  { label: 'Figma', level: 90 },
+  { label: 'Design Systems', level: 80 },
+  { label: 'UI/UX', level: 93 },
   { label: 'Interaction Design', level: 85 },
-  { label: 'Animation', level: 80 },
-  { label: 'Adobe Suite', level: 90 },
+  { label: 'Animation', level: 70 },
+  { label: 'Adobe Photoshop', level: 85 },
+  { label: 'Adobe Illustrator', level: 85 },
+  { label: 'Adobe After Effects', level: 80 },
   { label: 'CMS', level: 70 },
   { label: 'Motion Graphics', level: 75 },
-  { label: 'Accesibility', level: 80 },
-  { label: 'AI', level: 75 },
-  { label: 'Claude', level: 85 },
+  { label: 'Accesibility', level: 73 },
+  { label: 'AI', level: 70 },
 ];
 
 export interface ExperienceItem {
@@ -54,7 +57,7 @@ export const EXPERIENCE: ExperienceItem[] = [
     subtitle: 'User Experince Designer - Visual Designer',
     featured: true,
     description:
-      "at Globant, I worked as a Visual Designer and UX Designer, creating user-centered digital experiences for global clients across retail, finance, healthcare, and technology. I collaborated with cross-functional teams to design intuitive interfaces, scalable design systems, and end-to-end product experiences that balanced user needs with business goals.",
+      "At Globant, I worked as a Visual Designer and UX Designer, creating user-centered digital experiences for global clients across retail, finance, healthcare, and technology. I collaborated with cross-functional teams to design intuitive interfaces, scalable design systems, and end-to-end product experiences that balanced user needs with business goals.",
     clients: ["Dick's", 'PepsiCo', 'Directv', 'Warner Media', 'Sportian'],
   },
   {
@@ -63,8 +66,8 @@ export const EXPERIENCE: ExperienceItem[] = [
     location: 'Bogotá, Colombia',
     subtitle: 'User Experince Designer - Visual Designer - Art Director - Digital Creative',
     description:
-      "at Globant, I worked as a Visual Designer and UX Designer, creating user-centered digital experiences for global clients across retail, finance, healthcare, and technology. I collaborated with cross-functional teams to design intuitive interfaces, scalable design systems, and end-to-end product experiences that balanced user needs with business goals.",
-    clients: ["Dick's", 'PepsiCo', 'Directv', 'Warner Media', 'Sportian'],
+      "During my time at Sancho BBDO, I partnered with multidisciplinary teams to create digital experiences for a diverse portfolio of brands. Working across UX, UI, and digital creative, I designed websites, campaigns, and interactive experiences that balanced creativity, usability, and business goals.",
+    clients: ["Gatorade", 'Pepsi', 'Mountain Dew', 'Cheetos', 'El Tiempo'],
   },
   {
     date: '2013-2013',
@@ -72,8 +75,8 @@ export const EXPERIENCE: ExperienceItem[] = [
     location: 'Bogotá, Colombia',
     subtitle: 'Digital Graphic Designer',
     description:
-      "at Globant, I worked as a Visual Designer and UX Designer, creating user-centered digital experiences for global clients across retail, finance, healthcare, and technology. I collaborated with cross-functional teams to design intuitive interfaces, scalable design systems, and end-to-end product experiences that balanced user needs with business goals.",
-    clients: ["Dick's", 'PepsiCo', 'Directv', 'Warner Media', 'Sportian'],
+      "As a Digital Designer at AIDA Lowe SSP3, I focused on creating landing pages, email marketing campaigns, and other digital assets for a variety of brands. I collaborated with creative and marketing teams to deliver visually engaging, conversion-focused experiences while ensuring consistency across digital touchpoints.",
+    clients: ["AON", 'McAfee', 'Colsubsidio'],
   },
   {
     date: '2011-2013',
@@ -81,8 +84,8 @@ export const EXPERIENCE: ExperienceItem[] = [
     location: 'Bogotá, Colombia',
     subtitle: 'Digital Graphic Designer',
     description:
-      "at Globant, I worked as a Visual Designer and UX Designer, creating user-centered digital experiences for global clients across retail, finance, healthcare, and technology. I collaborated with cross-functional teams to design intuitive interfaces, scalable design systems, and end-to-end product experiences that balanced user needs with business goals.",
-    clients: ["Dick's", 'PepsiCo', 'Directv', 'Warner Media', 'Sportian'],
+      "At Plasticolab, I worked as a Motion Graphics Designer, producing television commercials from concept to final delivery. I was involved throughout the entire creative process, including pre-production, production, and post-production, collaborating with multidisciplinary teams to bring campaigns to life. During this time, I also began designing web interfaces, laying the foundation for my transition into digital product and UX/UI design.",
+    clients: ["Yupi", 'JGB', 'MinTic', 'Seven-Seven'],
   },
 ];
 
@@ -146,7 +149,7 @@ export const WORK_ITEMS: WorkItem[] = [
   },
   {
     href: '',
-    bgSrc: '',
+    bgSrc: '/images/backgrounds/directv-bg.jpg',
     bgAlt: 'DirectvGo project — coming soon',
     comingSoon: true,
     label: 'DirectvGo',
