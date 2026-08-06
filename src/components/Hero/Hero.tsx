@@ -28,7 +28,7 @@ export default function Hero() {
             View Work
             <ArrowRightIcon />
           </a>
-          <a href="#" className={styles.downloadLink}>
+          <a href="/Augusto_Barragan_Resume.pdf" download className={styles.downloadLink}>
             <DownloadIcon />
             Download CV
           </a>

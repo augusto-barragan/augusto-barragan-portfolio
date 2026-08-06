@@ -24,7 +24,7 @@ export default function Footer() {
 
       <div className={styles.rights}>
         <p className={styles.rightsText}>© 2026 Augusto barragan. All rights reserved</p>
-        <a href="#" className={styles.footerDownload}>
+        <a href="/Augusto_Barragan_Resume.pdf" download className={styles.footerDownload}>
           <DownloadIcon />
           Download CV
         </a>

@@ -1,4 +1,4 @@
-export const ROLES = ['Visual Designer', 'UX Designer', 'Motion Designer'];
+export const ROLES = ['Visual Designer', 'UX Designer', 'Product Designer', 'Motion Designer'];
 
 export const MARQUEE_ITEMS = [
   'Design Systems',
