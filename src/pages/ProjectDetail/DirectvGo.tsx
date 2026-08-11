@@ -17,7 +17,7 @@ export default function DirectvGo() {
         <ProjectHeader />
 
         <ProjectHero
-          year="2026"
+          year="2020-2022"
           title={
             <>
               Directv<span className={styles.accent}>Go</span>
