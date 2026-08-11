@@ -7,10 +7,18 @@ import ProjectHero from '../../components/ProjectDetail/ProjectHero';
 import ProjectNav from '../../components/ProjectDetail/ProjectNav';
 import ProjectSection from '../../components/ProjectDetail/ProjectSection';
 import ScreensImage from '../../components/ProjectDetail/ScreensImage';
+import { useSEO } from '../../hooks/useSEO';
 
 const BASE = '/images/projects/directv-go';
 
 export default function DirectvGo() {
+  useSEO({
+    title: 'DirectvGo — Case Study',
+    description:
+      'Case study: bridging design and development for DirectvGo’s streaming platform across app, tablet and TV.',
+    path: '/work/directv-go',
+  });
+
   return (
     <div className={styles.page}>
       <div className={styles.wrapper}>

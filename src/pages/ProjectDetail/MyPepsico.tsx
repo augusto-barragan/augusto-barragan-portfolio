@@ -8,10 +8,18 @@ import ProjectNav from '../../components/ProjectDetail/ProjectNav';
 import ProjectSection from '../../components/ProjectDetail/ProjectSection';
 import ScreensImage from '../../components/ProjectDetail/ScreensImage';
 import { ShowcasePair, ShowcaseSection } from '../../components/ProjectDetail/ShowcaseSection';
+import { useSEO } from '../../hooks/useSEO';
 
 const BASE = '/images/projects/mypepsico';
 
 export default function MyPepsico() {
+  useSEO({
+    title: 'MyPepsiCo — Case Study',
+    description:
+      "Case study: building a scalable design system for MyPepsiCo's back-office platform — typography, color, grid and component library.",
+    path: '/work/mypepsico',
+  });
+
   return (
     <div className={styles.page}>
       <div className={styles.wrapper}>

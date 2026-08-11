@@ -8,6 +8,7 @@ import ProjectHeader from '../../components/ProjectDetail/ProjectHeader';
 import ProjectHero from '../../components/ProjectDetail/ProjectHero';
 import ProjectNav from '../../components/ProjectDetail/ProjectNav';
 import ProjectSection from '../../components/ProjectDetail/ProjectSection';
+import { useSEO } from '../../hooks/useSEO';
 
 const BASE = '/images/projects/dicks-marriott';
 
@@ -28,6 +29,13 @@ const DESKTOP_SCREENS = [
 ];
 
 export default function DicksMarriott() {
+  useSEO({
+    title: "Dick's + Marriott — Case Study",
+    description:
+      "Case study: designing a scalable loyalty rewards experience for Dick's Sporting Goods and Marriott Bonvoy across app, desktop and mobile web.",
+    path: '/work/dicks-marriott',
+  });
+
   return (
     <div className={styles.page}>
       <div className={styles.wrapper}>

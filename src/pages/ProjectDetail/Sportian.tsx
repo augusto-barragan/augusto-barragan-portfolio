@@ -9,6 +9,7 @@ import ProjectNav from '../../components/ProjectDetail/ProjectNav';
 import ProjectSection from '../../components/ProjectDetail/ProjectSection';
 import ScreensImage from '../../components/ProjectDetail/ScreensImage';
 import StatsRow from '../../components/ProjectDetail/StatsRow';
+import { useSEO } from '../../hooks/useSEO';
 
 const BASE = '/images/projects/sportian';
 
@@ -20,6 +21,13 @@ const GRID_SCREENS = [
 ];
 
 export default function Sportian() {
+  useSEO({
+    title: 'Sportian — Case Study',
+    description:
+      "Case study: redesigning Sportian's enterprise venue management platform for live event ticketing, seating and pass creation.",
+    path: '/work/sportian',
+  });
+
   return (
     <div className={styles.page}>
       <div className={styles.wrapper}>
