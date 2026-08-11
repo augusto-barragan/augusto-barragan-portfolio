@@ -219,6 +219,14 @@
   margin: 0;
 }
 
+.sectionImage {
+  flex-shrink: 0;
+  width: 400px;
+  max-width: 100%;
+  display: block;
+  border-radius: 4px;
+}
+
 .screensBlack {
   background: #000;
   display: flex;
@@ -241,8 +249,20 @@
   width: 100%;
 }
 
+.screensDark {
+  background: var(--dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 56px 96px;
+  width: 100%;
+}
+
 .screensBlack img,
-.screensWhite img {
+.screensWhite img,
+.screensDark img {
   max-width: 100%;
   display: block;
   border-radius: 4px;
@@ -318,8 +338,13 @@
     line-height: 1.3;
   }
 
+  .sectionImage {
+    width: 100%;
+  }
+
   .screensBlack,
-  .screensWhite {
+  .screensWhite,
+  .screensDark {
     padding: 32px 24px;
   }
 

@@ -4,10 +4,15 @@ export default function ProjectSection({
   label,
   heading,
   body,
+  image,
+  imageAlt,
 }: {
   label: string;
   heading: string;
   body: string | string[];
+  /** Optional image shown alongside the text (e.g. a 3D render). */
+  image?: string;
+  imageAlt?: string;
 }) {
   const paragraphs = Array.isArray(body) ? body : [body];
 
@@ -22,6 +27,7 @@ export default function ProjectSection({
           </p>
         ))}
       </div>
+      {image && <img className={styles.sectionImage} src={image} alt={imageAlt ?? ''} />}
     </div>
   );
 }

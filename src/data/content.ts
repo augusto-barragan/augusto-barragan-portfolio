@@ -146,10 +146,9 @@ export const WORK_ITEMS: WorkItem[] = [
     ],
   },
   {
-    href: '',
+    href: '/work/directv-go',
     bgSrc: '/images/backgrounds/directv-bg.jpg',
-    bgAlt: 'DirectvGo project — coming soon',
-    comingSoon: true,
+    bgAlt: 'DirectvGo project',
     logos: [
       {
         src: '/images/logos/directv-go-logo.svg',
@@ -199,4 +198,5 @@ export const PROJECT_ORDER: ProjectOrderEntry[] = [
   { slug: 'dicks-marriott', title: "Dick's + Marriott" },
   { slug: 'sportian', title: 'Sportian' },
   { slug: 'mypepsico', title: 'MyPepsiCo' },
+  { slug: 'directv-go', title: 'DirectvGo' },
 ];
