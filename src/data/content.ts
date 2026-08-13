@@ -54,7 +54,7 @@ export const EXPERIENCE: ExperienceItem[] = [
     date: '2017-2026',
     company: 'Globant',
     location: 'Bogotá, Colombia',
-    subtitle: 'User Experince Designer - Visual Designer',
+    subtitle: 'User Experience Designer - Visual Designer',
     featured: true,
     description:
       "At Globant, I worked as a Visual Designer and UX Designer, creating user-centered digital experiences for global clients across retail, finance, healthcare, and technology. I collaborated with cross-functional teams to design intuitive interfaces, scalable design systems, and end-to-end product experiences that balanced user needs with business goals.",
@@ -64,7 +64,7 @@ export const EXPERIENCE: ExperienceItem[] = [
     date: '2013-2017',
     company: 'Sancho BBDO',
     location: 'Bogotá, Colombia',
-    subtitle: 'User Experince Designer - Visual Designer - Art Director - Digital Creative',
+    subtitle: 'User Experience Designer - Visual Designer - Art Director - Digital Creative',
     description:
       "During my time at Sancho BBDO, I partnered with multidisciplinary teams to create digital experiences for a diverse portfolio of brands. Working across UX, UI, and digital creative, I designed websites, campaigns, and interactive experiences that balanced creativity, usability, and business goals.",
     clients: ["Gatorade", 'Pepsi', 'Mountain Dew', 'Cheetos', 'El Tiempo'],
