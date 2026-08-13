@@ -25,18 +25,18 @@ export interface Skill {
 
 export const SKILLS: Skill[] = [
   { label: 'Visual Design', level: 94, filled: false },
-  { label: 'Figma', level: 90 },
-  { label: 'Design Systems', level: 80 },
+  { label: 'Figma', level: 94 },
+  { label: 'Design Systems', level: 85 },
   { label: 'UI/UX', level: 93 },
-  { label: 'Interaction Design', level: 85 },
+  { label: 'Interaction Design', level: 89 },
   { label: 'Animation', level: 70 },
-  { label: 'Adobe Photoshop', level: 85 },
-  { label: 'Adobe Illustrator', level: 85 },
-  { label: 'Adobe After Effects', level: 80 },
-  { label: 'CMS', level: 70 },
-  { label: 'Motion Graphics', level: 75 },
+  { label: 'Adobe Photoshop', level: 87 },
+  { label: 'Adobe Illustrator', level: 83 },
+  { label: 'Adobe After Effects', level: 86 },
+  { label: 'WordPress', level: 75 },
+  { label: 'Motion Graphics', level: 78 },
   { label: 'Accesibility', level: 73 },
-  { label: 'AI', level: 70 },
+  { label: 'AI', level: 76 },
 ];
 
 export interface ExperienceItem {
