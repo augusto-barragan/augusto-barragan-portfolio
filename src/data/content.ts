@@ -37,6 +37,7 @@ export const SKILLS: Skill[] = [
   { label: 'Motion Graphics', level: 78 },
   { label: 'Accesibility', level: 73 },
   { label: 'AI', level: 76 },
+  { label: 'HTML/CSS', level: 72 },
 ];
 
 export interface ExperienceItem {
