@@ -160,6 +160,19 @@ export const WORK_ITEMS: WorkItem[] = [
     ],
   },
   {
+    href: '/work/sancho-bbdo',
+    bgSrc: '/images/backgrounds/sancho-bg.jpg',
+    bgAlt: 'Sancho BBDO project',
+    logos: [
+      {
+        src: '/images/logos/sanchobbdo-logo.svg',
+        alt: 'sancho bbdo logo',
+        height: 62,
+        objectFit: 'contain',
+      },
+    ],
+  },
+  {
     href: '',
     bgSrc: '/images/backgrounds/warnermedia-bg.jpg',
     bgAlt: 'Warner Media project — coming soon',
@@ -169,20 +182,6 @@ export const WORK_ITEMS: WorkItem[] = [
         src: '/images/logos/warnermedia-logo.png',
         alt: 'warner media logo',
         height: 42,
-        objectFit: 'contain',
-      },
-    ],
-  },
-  {
-    href: '',
-    bgSrc: '/images/backgrounds/sancho-bg.jpg',
-    bgAlt: 'Sancho BBDO project — coming soon',
-    comingSoon: true,
-    logos: [
-      {
-        src: '/images/logos/sanchobbdo-logo.svg',
-        alt: 'sancho bbdo logo',
-        height: 62,
         objectFit: 'contain',
       },
     ],
@@ -200,4 +199,5 @@ export const PROJECT_ORDER: ProjectOrderEntry[] = [
   { slug: 'sportian', title: 'Sportian' },
   { slug: 'mypepsico', title: 'MyPepsiCo' },
   { slug: 'directv-go', title: 'DirectvGo' },
+  { slug: 'sancho-bbdo', title: 'Sancho BBDO' },
 ];
