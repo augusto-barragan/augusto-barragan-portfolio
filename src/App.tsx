@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react';
 import { Route, Routes } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="/work/directv-go" element={<DirectvGo />} />
         <Route path="/work/sancho-bbdo" element={<SanchoBbdo />} />
       </Routes>
+      <Analytics />
     </>
   );
 }
